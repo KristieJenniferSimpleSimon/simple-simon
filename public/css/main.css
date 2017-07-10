@@ -1,1 +1,50 @@
-main.css
+/*//===========Styling for Class============//*/
+
+.container {
+	position: relative;		
+}
+.box-red {
+	background-color: red;
+	float: right;
+	
+	
+}
+
+.box-green {
+	background-color: green;
+	
+	
+}
+
+.box-blue {
+	background-color: blue;
+	float: right;
+	
+}
+
+.box-yellow {
+	background-color: yellow;
+	
+}
+
+
+button {
+	width: 150px;
+	height: 200px;
+}
+
+.middle-btn {
+	width: 40px;
+	height: 40px;
+	margin: auto;
+}
+
+#start {
+	width: 60px;
+	height: 60px;
+}
+
+
+
+
+
