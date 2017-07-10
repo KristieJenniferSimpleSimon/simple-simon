@@ -13,12 +13,12 @@
 
 		<div class="container" id="content">
 			<div class="colorRed">
-				<button id="red-btn" class="box-red" value="red">RED</button>
+				<button id="red-btn" class="box-red" value="red"></button>
 				<!-- <div placeholder="soundred"></div> -->
 			</div>
 
 			<div class="colorGreen">
-				<button id="green-btn" class="box-green" value="green">GREEN</button>
+				<button id="green-btn" class="box-green" value="green"></button>
 				<!-- <div placeholder="soundgreen"></div> -->
 			</div>
 
@@ -28,12 +28,12 @@
 			</div>
 
 			<div class="colorBlue">
-				<button id="blue-btn" class="box-blue" value="blue">BLUE</button>
+				<button id="blue-btn" class="box-blue" value="blue"></button>
 				<!-- <div placeholder="soundblue"></div> -->
 			</div>
 
 			<div class="colorYellow">
-				<button id="yellow-btn" class="box-yellow" value="yellow">YELLOW</button>
+				<button id="yellow-btn" class="box-yellow" value="yellow"></button>
 				<!-- <div placeholder="soundyellow"></div> -->
 			</div>
 
@@ -42,6 +42,66 @@
 
 		<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script type="text/javascript"></script>
+		<script>
+
+			$(document).ready(function() {
+        	"use strict";
+
+        	$('#red-btn').click(function(){
+	            $('#red-btn').animate({
+	            opacity: 1
+	            });
+        	});
+
+        	$('#blue-btn').click(function(){
+	            $('#blue-btn').animate({
+	            opacity: 1
+	            });
+	        });
+
+	        $('#green-btn').click(function(){
+	            $('#green-btn').animate({
+	            opacity: 1
+	            });
+        	});
+
+	        $('#yellow-btn').click(function(){
+	            $('#yellow-btn').animate({
+	            opacity: 1
+	            });
+        	});
+
+
+	        $('#start').click(function getRandomColor() {
+	        	var random = ["Red", "Blue", "Green", "Yellow"];
+			  	var color = "#";
+					for (var i = 0; i < 20; i++) {
+					    color += random[Math.floor(Math.random() *20)];
+					 }
+					return color;
+					});
+		
+				console.log(getRandomColor);
+			});
+
+
+	        
+
+			function setRandomColor() {
+			   $("#container").css("background-color", getRandomColor());
+			}
+
+
+
+        	/**function to display instructions:
+        	//On page load default display: Click start to begin
+				if game is new : "Watch the sequence"
+
+				once the sequence ends: "Repeat the sequence you just saw" **/
+
+			
+        // });
+        </script>
 
 	</body>
 </html>

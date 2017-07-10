@@ -1,30 +1,46 @@
 /*//===========Styling for Class============//*/
 
 .container {
-	position: relative;		
+	position: relative;	
+	border-color: grey;	
+	width: 800px;
+	height: 800px;
 }
 .box-red {
 	background-color: red;
 	float: right;
-	
+	opacity: 0.5;
+	margin-right: 150px;
 	
 }
 
 .box-green {
 	background-color: green;
-	
+	opacity: .5;
+	margin-left: 200px;
 	
 }
 
 .box-blue {
 	background-color: blue;
 	float: right;
+	opacity: .5;
+	margin-right: 150px;
 	
 }
 
 .box-yellow {
 	background-color: yellow;
-	
+	opacity: .25;
+	margin-left: 200px;
+}
+
+
+textarea {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	margin-left: 25px;
 }
 
 
@@ -34,14 +50,16 @@ button {
 }
 
 .middle-btn {
-	width: 40px;
-	height: 40px;
+	width: 100px;
+	height: 80px;
 	margin: auto;
+	text-align: center;
 }
 
 #start {
-	width: 60px;
-	height: 60px;
+	width: 100px;
+	height: 30px;
+	margin-left: 25px;
 }
 
 
