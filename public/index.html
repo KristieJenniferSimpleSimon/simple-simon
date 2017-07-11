@@ -11,7 +11,7 @@
 
 		<div class="container" id="content">
 			<div id="parent" class="row text-center">
-				<h1 class="text-primary text-center"> Simon </h1>
+				<h1 class="text-primary text-center"> Simple Simon </h1>
 				<h1 id="input" class="text-primary text-center"></h1>
 					<div id="btn">
 						<div class="row text-center">
@@ -57,29 +57,7 @@
         	var stopInterval;
         	
 
-        	$('#red-btn').click(function(){
-	            $('#red-btn').animate({
-	            opacity: 1
-	            });
-        	});
-
-        	$('#blue-btn').click(function(){
-	            $('#blue-btn').animate({
-	            opacity: 1
-	            });
-	        });
-
-	        $('#green-btn').click(function(){
-	            $('#green-btn').animate({
-	            opacity: 1
-	            });
-        	});
-
-	        $('#yellow-btn').click(function(){
-	            $('#yellow-btn').animate({
-	            opacity: 1
-	            });
-        	});
+      
 
 	        function gamePlay() {
 	        	if (count <= 10) {
@@ -94,26 +72,26 @@
 		        var stopInterval = setInterval(function(){
 		        	if (random[colorArray] == 1) {
 
-		        		lite = "red-btn";
-		        		$("#red-btn").addClass(lite);
+		        		lite = "activeBox1";
+		        		$("#one").addClass(lite);
 		        		$("#audio1")[0].play();
 		        		liteId.push(1);
 
 		        		setTimeOut(function(){
-		        			$("#red-btn").removeClass(lite);
+		        			$("#one").removeClass(lite);
 
 		        		}, off);
 		        	}
 
 		        	else if(random[colorArray] ==2) {
 		        		
-		        		lite = "green-btn";
-		        		$("#green-btn").addClass(lite);
+		        		lite = "activeBox2";
+		        		$("#two").addClass(lite);
 		        		$("#audio2")[0].play();
 		        		liteId.push(2);
 
 			        	setTimeOut(function(){
-			        		$("#green-btn").removeClass(lite);
+			        		$("#two").removeClass(lite);
 
 			        	}, off);
 
@@ -121,26 +99,26 @@
 
 		        	else if(random[colorArray] ==3) {
 
-		        		lite = "blue-btn";
-		        		$("#blue-btn").addClass(lite);
+		        		lite = "activeBox3";
+		        		$("#three").addClass(lite);
 		        		$("#audio3")[0].play();
 		        		liteId.push(3);
 
 			        	setTimeOut(function(){
-			        		$("#blue-btn").removeClass(lite);
+			        		$("#three").removeClass(lite);
 
 			        	}, off);
 
 		        	}
 
 		        	else if(random[colorArray] ==4) {
-		        		lite = "yellow-btn";
-		        		$("#yellow-btn").addClass(lite);
+		        		lite = "activeBox4";
+		        		$("#four").addClass(lite);
 		        		$("#audio4")[0].play();
 		        		liteId.push(4);
 
 			        	setTimeOut(function(){
-			        		$("#yellow-btn").removeClass(lite);
+			        		$("#four").removeClass(lite);
 
 			        	}, off);
 		        	}
