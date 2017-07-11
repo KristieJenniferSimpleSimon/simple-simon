@@ -47,6 +47,18 @@
 			$(document).ready(function() {
         	"use strict";
 
+        	var random = [];
+        	var liteId = [];
+        	var lite;
+        	var userClicked = [];
+        	var i;
+        	var colorArray = 0;
+        	var count = 1;
+        	var on;
+        	var off;
+        	var stopInterval;
+
+
         	$('#red-btn').click(function(){
 	            $('#red-btn').animate({
 	            opacity: 1
@@ -71,25 +83,98 @@
 	            });
         	});
 
+	        function gamePlay() {
+	        	if (count <= 10) {
+	        		off = 400;
+	        		on = 800;
+	        	} else {
+	        		off = 250;
+	        		on = 500;
+	        	}
+	        };
 
-	        $('#start').click(function getRandomColor() {
-	        	var random = ["Red", "Blue", "Green", "Yellow"];
-			  	var color = "#";
-					for (var i = 0; i < 20; i++) {
-					    color += random[Math.floor(Math.random() *20)];
-					 }
-					return color;
-					});
+	        function stopInterval = setInerval(function(){
+	        	if (random[colorArray] == 1) {
+
+	        		lite = "red-btn";
+	        		$("#red-btn").addClass(lite);
+	        		$("#audio1")[0].play();
+	        		liteId.push(1);
+
+	        		setTimeOut(function(){
+	        			$("#red-btn").removeClass(lite);
+
+	        		}, off);
+	        	}
+
+	        	else if(random[colorArray] ==2) {
+	        		
+	        		lite = "green-btn";
+	        		$('#green-btn').addClass(lite);
+	        		$("#audio2")[0].play();
+	        		liteId.push(2);
+
+		        	setTimeOut(function(){
+		        		$('#green-btn').removeClass(lite);
+
+		        	}, off);
+
+		        }
+
+	        	else if(random[colorArray] ==3) {
+
+	        		lite = "blue-btn";
+	        		$('#blue-btn').addClass(lite);
+	        		$("#audio3")[0].play();
+	        		liteId.push(3);
+
+		        	setTimeOut(function(){
+		        		$('#blue-btn').removeClass(lite);
+
+		        	}, off);
+
+	        	}
+
+	        	else if(random[colorArray] ==4) {
+	        		lite = "yellow-btn";
+	        		$('#yellow-btn').addClass(lite);
+	        		$("#audio4")[0].play();
+	        		liteId.push(4);
+
+		        	setTimeOut(function(){
+		        		$('#yellow-btn').removeClass(lite);
+
+		        	}, off);
+	        	}
+
+	        	colorArray ++;
+	        		if (colorArray = count) {
+	        			clear Interval(stopInterval);
+	        		}
+
+	        	}, on);
+	        });
+
+
+
+	  //       $('#start').click(function getRandomColor() {
+	  //       	var random = ["Red", "Blue", "Green", "Yellow"];
+			//   	var color = "#";
+			// 		for (var i = 0; i < 20; i++) {
+			// 		    color += random[Math.floor(Math.random() * 20)];
+			// 		 }
+			// 		return color;
+			// 		});
 		
-				console.log(getRandomColor);
-			});
+			// 	console.log(getRandomColor);
+			// });
 
 
 	        
 
-			function setRandomColor() {
-			   $("#container").css("background-color", getRandomColor());
-			}
+			// function setRandomColor() {
+			//    $("#container").css("background-color", getRandomColor());
+			// }
 
 
 
@@ -100,7 +185,7 @@
 				once the sequence ends: "Repeat the sequence you just saw" **/
 
 			
-        // });
+         });
         </script>
 
 	</body>
