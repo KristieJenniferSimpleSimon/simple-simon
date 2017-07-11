@@ -1,75 +1,106 @@
-/*//===========Styling for Class============//*/
 
-.container {
-	position: relative;	
-	border-color: grey;	
-	width: 800px;
-	height: 800px;
-}
-.box-red {
-	background-color: red;
-	float: right;
-	opacity: 0.5;
-	margin-right: 150px;
-	width: 150px;
-	
+#content {
+	color: black;
+	font-size: 40px;
+	background-color: white;
+	text-align: center;
 }
 
-.box-green {
-	background-color: green;
-	opacity: .5;
-	margin-left: 200px;
-	width: 150px;
-	
+h1{
+	color: black;
+	font-size: 20px;
+	background-color: white;
 }
 
-.box-blue {
-	background-color: blue;
-	float: right;
-	opacity: .5;
-	margin-right: 150px;
-	width: 150px;
-	
-}
-
-.box-yellow {
-	background-color: yellow;
-	opacity: .25;
-	margin-left: 200px;
-	width: 150px;
-}
-
-
-button {
-	width: 100px;
-	height: 200px;
-}
-
-.middle-btn {
-	width: 100px;
+#one {
 	height: 100px;
+	width: 100px;
+	text-align: center;
+	align-content: center;
+}
+
+#two {
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	align-content: center;
+}
+
+#three {
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	align-content: center;
+}
+
+#four {
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	align-content: center;
+}
+
+#inactiveBox1 {
+	background-color: red;
+	opacity: 0.5;
+}
+
+#activeBox1 {
+	background-color: red;
+	opacity: 1;
+
+}
+
+#inactiveBox2 {
+	background-color: green;
+	opacity: 0.5;
+}
+
+#activeBox2 {
+	background-color: green;
+	opacity: 1;
+}
+
+#inactiveBox3 {
+	background-color: blue;
+	opacity: 0.5;
+}
+
+#activeBox3 {
+	background-color: blue;
+	opacity: 1;
+}
+
+#inactiveBox4 {
+	background-color: yellow;
+	opacity: 0.25;
+}
+
+
+#activeBox4 {
+	background-color: yellow;
+	opacity: 1;
+}
+
+
+.img {
+	height: 12px;
+	width: 12px;
+	text-align: center;
+	align-text: center;
+}
+
+#footer {
 	margin: auto;
 	text-align: center;
+
 }
 
-#start {
-	width: 100px;
-	height: 25px;
-	margin-left: 25px;
-}
 
-textarea {
-	width: 100px;
-	height: 40px;
-	text-align: center;
-	margin-left: 25px;
-}
 
-#stop {
-	width: 100px;
-	height: 25px;
-	margin-left: 25px;
-}
+
+
+
 
 
 
