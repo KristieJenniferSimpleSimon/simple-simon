@@ -15,12 +15,12 @@
 				<h1 id="input" class="text-primary text-center"></h1>
 					<div id="btn">
 						<div class="row text-center">
-							<button id="one" class="dark1"></button>
-							<button id="two" class="dark2"></button>
+							<button id="one" class="box"></button>
+							<button id="two" class="box"></button>
 						</div>
 						<div class="row text-center">
-							<div> COUNT </div>
-							<form id="count"></form>
+							<div>COUNT<span id="count"></span></div>
+							
 							<button id="start" class="btn"> START </button>
 							<button id="strict" class="btn"> STRICT </button>
 						</div>
@@ -29,8 +29,8 @@
 							<button id="on" class="btn"> ON </button>
 						</div>
 						<div class="row text-center">
-							<button id="three" class="dark3"></button>
-							<button id="four" class="dark4"></button>
+							<button id="three" class="box"></button>
+							<button id="four" class="box"></button>
 						</div>
 					</div>
 			</div>
@@ -45,7 +45,8 @@
 			$(document).ready(function() {
         	"use strict";
 
-        	var random = [];
+        	var boxes = ["one", "two", "three", "four"];
+        	// var random = [];
         	var liteId = [];
         	var lite;
         	var userClicked = [];
@@ -55,9 +56,40 @@
         	var on;
         	var off;
         	var stopInterval;
-        	
 
-      
+        	function random() {
+        		console.log(boxes);	
+        		var randomColor = Math.round(Math.random() *  boxes.length);
+        		liteId.push(boxes[randomColor]);
+        		return liteId;
+        	}
+
+        	function flashSequence() {
+        		liteId.forEach(function(element, index) {
+        			setTimeout(function() {
+	        			$('#' + element).animate( {
+	        				opacity: "1",
+	        			}, 800). animate( {
+	        				opacity: "0.5"
+	        			}, 200);
+        			}, index * 1000);
+        		});
+        	}
+
+        	$("#start").click(function(){
+        		random();
+        		flashSequence();
+        		// $('.box').animate( {
+        		// 	opacity: "1",
+        		// }, 800).animate({
+        		// 	opacity: "0.5"
+        		// }, 200);
+				// $("#count").text(count);
+				// gamePlay();
+			});
+
+
+        	
 
 	        function gamePlay() {
 	        	if (count <= 10) {
@@ -129,7 +161,7 @@
 		        		}
 
 		        	}, on);
-		        });
+		    });
 	
 			function checkInput(){
 				if(liteId.length == userClicked.length) {
@@ -174,7 +206,21 @@
 				}
 			}
 
-			
+			$("#on").click(function(){
+				$("#count").text("");
+				for (i = 0; i < 20; i++){
+					random[i] = math.ceil(math.random() *4);
+				}
+			});
+
+			$("#strict").click(function(){
+				strict = 1;
+				});
+
+			// $("#start").click(function(){
+			// 	$("#count").text(count);
+			// 	// gamePlay();
+			// });
 
 			
          //});
