@@ -17,6 +17,7 @@ h1{
 	width: 100px;
 	text-align: center;
 	align-content: center;
+	background-color: red;
 }
 
 #two {
@@ -24,6 +25,7 @@ h1{
 	width: 100px;
 	text-align: center;
 	align-content: center;
+	background-color: green;
 }
 
 #three {
@@ -31,6 +33,7 @@ h1{
 	width: 100px;
 	text-align: center;
 	align-content: center;
+	background-color: blue;
 }
 
 #four {
@@ -38,6 +41,7 @@ h1{
 	width: 100px;
 	text-align: center;
 	align-content: center;
+	background-color: yellow;
 }
 
 #inactiveBox1 {
