@@ -24,3 +24,215 @@
 				if game is new : "Watch the sequence"
 
 				once the sequence ends: "Repeat the sequence you just saw" **/
+===============================================================================
+ORIGINAL HTML LAYOUT AS OF: 7/11/2017 11:22 AM
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="/css/main.css" rel="stylesheet">
+		<title>Simple Simon Game</title>
+
+
+	</head>
+	<body>
+
+		<div class="container" id="content">
+			<div class="colorRed">
+				<button id="red-btn" class="box-red" value="red"></button>
+				<!-- <div placeholder="soundred"></div> -->
+			</div>
+
+			<div class="colorGreen">
+				<button id="green-btn" class="box-green" value="green"></button>
+				<!-- <div placeholder="soundgreen"></div> -->
+			</div>
+			<br>
+			<div class="middle-btn">
+				<button id="start"> START </button>
+				<textarea>COUNT</textarea>
+				<button id="stop"> STOP </button>
+			</div>
+			<br>
+			<div class="colorBlue">
+				<button id="blue-btn" class="box-blue" value="blue"></button>
+				<!-- <div placeholder="soundblue"></div> -->
+			</div>
+
+			<div class="colorYellow">
+				<button id="yellow-btn" class="box-yellow" value="yellow"></button>
+				<!-- <div placeholder="soundyellow"></div> -->
+			</div>
+
+		</div>
+
+
+		<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript"></script>
+		<script>
+
+			$(document).ready(function() {
+        	"use strict";
+
+        	var random = [];
+        	var liteId = [];
+        	var lite;
+        	var userClicked = [];
+        	var i;
+        	var colorArray = 0;
+        	var count = 1;
+        	var on;
+        	var off;
+        	var stopInterval;
+        	
+
+
+        	$('#red-btn').click(function(){
+	            $('#red-btn').animate({
+	            opacity: 1
+	            });
+        	});
+
+        	$('#blue-btn').click(function(){
+	            $('#blue-btn').animate({
+	            opacity: 1
+	            });
+	        });
+
+	        $('#green-btn').click(function(){
+	            $('#green-btn').animate({
+	            opacity: 1
+	            });
+        	});
+
+	        $('#yellow-btn').click(function(){
+	            $('#yellow-btn').animate({
+	            opacity: 1
+	            });
+        	});
+
+	        function gamePlay() {
+	        	if (count <= 10) {
+	        		off = 400;
+	        		on = 800;
+	        	} else {
+	        		off = 250;
+	        		on = 500;
+	        	}
+	        };
+
+		        var stopInterval = setInterval(function(){
+		        	if (random[colorArray] == 1) {
+
+		        		lite = "red-btn";
+		        		$("#red-btn").addClass(lite);
+		        		$("#audio1")[0].play();
+		        		liteId.push(1);
+
+		        		setTimeOut(function(){
+		        			$("#red-btn").removeClass(lite);
+
+		        		}, off);
+		        	}
+
+		        	else if(random[colorArray] ==2) {
+		        		
+		        		lite = "green-btn";
+		        		$("#green-btn").addClass(lite);
+		        		$("#audio2")[0].play();
+		        		liteId.push(2);
+
+			        	setTimeOut(function(){
+			        		$("#green-btn").removeClass(lite);
+
+			        	}, off);
+
+			        }
+
+		        	else if(random[colorArray] ==3) {
+
+		        		lite = "blue-btn";
+		        		$("#blue-btn").addClass(lite);
+		        		$("#audio3")[0].play();
+		        		liteId.push(3);
+
+			        	setTimeOut(function(){
+			        		$("#blue-btn").removeClass(lite);
+
+			        	}, off);
+
+		        	}
+
+		        	else if(random[colorArray] ==4) {
+		        		lite = "yellow-btn";
+		        		$("#yellow-btn").addClass(lite);
+		        		$("#audio4")[0].play();
+		        		liteId.push(4);
+
+			        	setTimeOut(function(){
+			        		$("#yellow-btn").removeClass(lite);
+
+			        	}, off);
+		        	}
+
+		        	colorArray ++;
+		        		if (colorArray = count) {
+		        			clearInterval(stopInterval);
+		        		}
+
+		        	}, on);
+		        });
+	
+			function checkInput(){
+				if(liteId.length == userClicked.length) {
+					
+					if (liteId.join() == userClicked.join()){
+						if (count == 20) {
+							setTimeOut(function(){
+								alert ("You Win!!!");
+							location.reload();
+							},1000);
+
+						} 
+
+						else {
+							setTimeOut(function(){
+								$("#count").text(count + 1);
+								count ++;
+								liteId = [];
+								userClicked = [];
+								colorArray = 0;
+								gamePlay();
+							},1000);
+						}
+					} 
+
+					else {
+						if (strict == 1) {
+							location.reload();
+
+						} 
+
+						else {
+							setTimeOut(function(){
+								$("#count").text("!!");
+								liteId = [];
+								userClicked = [];
+								colorArray = 0;
+								gamePlay();
+							}, 1000);
+						}
+					}
+				}
+			}
+
+			
+
+			
+         //});
+        </script>
+
+	</body>
+</html>

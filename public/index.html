@@ -6,39 +6,36 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="/css/main.css" rel="stylesheet">
 		<title>Simple Simon Game</title>
-
-
 	</head>
 	<body>
 
 		<div class="container" id="content">
-			<div class="colorRed">
-				<button id="red-btn" class="box-red" value="red"></button>
-				<!-- <div placeholder="soundred"></div> -->
+			<div id="parent" class="row text-center">
+				<h1 class="text-primary text-center"> Simon </h1>
+				<h1 id="input" class="text-primary text-center"></h1>
+					<div id="btn">
+						<div class="row text-center">
+							<button id="one" class="dark1"></button>
+							<button id="two" class="dark2"></button>
+						</div>
+						<div class="row text-center">
+							<div> COUNT </div>
+							<form id="count"></form>
+							<button id="start" class="btn"> START </button>
+							<button id="strict" class="btn"> STRICT </button>
+						</div>
+						<div class="row text-center">
+							<button id="off" class="btn"> OFF </button>
+							<button id="on" class="btn"> ON </button>
+						</div>
+						<div class="row text-center">
+							<button id="three" class="dark3"></button>
+							<button iod="four" class="dark4"></button>
+						</div>
+					</div>
 			</div>
-
-			<div class="colorGreen">
-				<button id="green-btn" class="box-green" value="green"></button>
-				<!-- <div placeholder="soundgreen"></div> -->
-			</div>
-			<br>
-			<div class="middle-btn">
-				<button id="start"> START </button>
-				<textarea>COUNT</textarea>
-				<button id="stop"> STOP </button>
-			</div>
-			<br>
-			<div class="colorBlue">
-				<button id="blue-btn" class="box-blue" value="blue"></button>
-				<!-- <div placeholder="soundblue"></div> -->
-			</div>
-
-			<div class="colorYellow">
-				<button id="yellow-btn" class="box-yellow" value="yellow"></button>
-				<!-- <div placeholder="soundyellow"></div> -->
-			</div>
-
 		</div>
+				
 
 
 		<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -59,7 +56,6 @@
         	var off;
         	var stopInterval;
         	
-
 
         	$('#red-btn').click(function(){
 	            $('#red-btn').animate({
