@@ -11,6 +11,7 @@
 	float: right;
 	opacity: 0.5;
 	margin-right: 150px;
+	width: 150px;
 	
 }
 
@@ -18,6 +19,7 @@
 	background-color: green;
 	opacity: .5;
 	margin-left: 200px;
+	width: 150px;
 	
 }
 
@@ -26,6 +28,7 @@
 	float: right;
 	opacity: .5;
 	margin-right: 150px;
+	width: 150px;
 	
 }
 
@@ -33,14 +36,12 @@
 	background-color: yellow;
 	opacity: .25;
 	margin-left: 200px;
+	width: 150px;
 }
 
 
-
-
-
 button {
-	width: 150px;
+	width: 100px;
 	height: 200px;
 }
 
