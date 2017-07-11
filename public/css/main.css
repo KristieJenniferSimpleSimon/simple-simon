@@ -36,12 +36,7 @@
 }
 
 
-textarea {
-	width: 100px;
-	height: 40px;
-	text-align: center;
-	margin-left: 25px;
-}
+
 
 
 button {
@@ -51,18 +46,29 @@ button {
 
 .middle-btn {
 	width: 100px;
-	height: 80px;
+	height: 100px;
 	margin: auto;
 	text-align: center;
 }
 
 #start {
 	width: 100px;
-	height: 30px;
+	height: 25px;
 	margin-left: 25px;
 }
 
+textarea {
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	margin-left: 25px;
+}
 
+#stop {
+	width: 100px;
+	height: 25px;
+	margin-left: 25px;
+}
 
 
 

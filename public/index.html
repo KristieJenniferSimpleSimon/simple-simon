@@ -23,8 +23,9 @@
 			</div>
 
 			<div class="middle-btn">
-				<button id="start">START</button>
+				<button id="start"> START </button>
 				<textarea>COUNT</textarea>
+				<button id="stop"> STOP </button>
 			</div>
 
 			<div class="colorBlue">
@@ -57,6 +58,7 @@
         	var on;
         	var off;
         	var stopInterval;
+        	
 
 
         	$('#red-btn').click(function(){
@@ -93,99 +95,115 @@
 	        	}
 	        };
 
-	        function stopInterval = setInerval(function(){
-	        	if (random[colorArray] == 1) {
+		        var stopInterval = setInterval(function(){
+		        	if (random[colorArray] == 1) {
 
-	        		lite = "red-btn";
-	        		$("#red-btn").addClass(lite);
-	        		$("#audio1")[0].play();
-	        		liteId.push(1);
+		        		lite = "red-btn";
+		        		$("#red-btn").addClass(lite);
+		        		$("#audio1")[0].play();
+		        		liteId.push(1);
 
-	        		setTimeOut(function(){
-	        			$("#red-btn").removeClass(lite);
+		        		setTimeOut(function(){
+		        			$("#red-btn").removeClass(lite);
 
-	        		}, off);
-	        	}
+		        		}, off);
+		        	}
 
-	        	else if(random[colorArray] ==2) {
-	        		
-	        		lite = "green-btn";
-	        		$('#green-btn').addClass(lite);
-	        		$("#audio2")[0].play();
-	        		liteId.push(2);
+		        	else if(random[colorArray] ==2) {
+		        		
+		        		lite = "green-btn";
+		        		$("#green-btn").addClass(lite);
+		        		$("#audio2")[0].play();
+		        		liteId.push(2);
 
-		        	setTimeOut(function(){
-		        		$('#green-btn').removeClass(lite);
+			        	setTimeOut(function(){
+			        		$("#green-btn").removeClass(lite);
 
-		        	}, off);
+			        	}, off);
 
-		        }
+			        }
 
-	        	else if(random[colorArray] ==3) {
+		        	else if(random[colorArray] ==3) {
 
-	        		lite = "blue-btn";
-	        		$('#blue-btn').addClass(lite);
-	        		$("#audio3")[0].play();
-	        		liteId.push(3);
+		        		lite = "blue-btn";
+		        		$("#blue-btn").addClass(lite);
+		        		$("#audio3")[0].play();
+		        		liteId.push(3);
 
-		        	setTimeOut(function(){
-		        		$('#blue-btn').removeClass(lite);
+			        	setTimeOut(function(){
+			        		$("#blue-btn").removeClass(lite);
 
-		        	}, off);
+			        	}, off);
 
-	        	}
+		        	}
 
-	        	else if(random[colorArray] ==4) {
-	        		lite = "yellow-btn";
-	        		$('#yellow-btn').addClass(lite);
-	        		$("#audio4")[0].play();
-	        		liteId.push(4);
+		        	else if(random[colorArray] ==4) {
+		        		lite = "yellow-btn";
+		        		$("#yellow-btn").addClass(lite);
+		        		$("#audio4")[0].play();
+		        		liteId.push(4);
 
-		        	setTimeOut(function(){
-		        		$('#yellow-btn').removeClass(lite);
+			        	setTimeOut(function(){
+			        		$("#yellow-btn").removeClass(lite);
 
-		        	}, off);
-	        	}
+			        	}, off);
+		        	}
 
-	        	colorArray ++;
-	        		if (colorArray = count) {
-	        			clear Interval(stopInterval);
-	        		}
+		        	colorArray ++;
+		        		if (colorArray = count) {
+		        			clearInterval(stopInterval);
+		        		}
 
-	        	}, on);
-	        });
+		        	}, on);
+		        });
+	
+			function checkInput(){
+				if(liteId.length == userClicked.length) {
+					
+					if (liteId.join() == userClicked.join()){
+						if (count == 20) {
+							setTimeOut(function(){
+								alert ("You Win!!!");
+							location.reload();
+							},1000);
 
+						} 
 
+						else {
+							setTimeOut(function(){
+								$("#count").text(count + 1);
+								count ++;
+								liteId = [];
+								userClicked = [];
+								colorArray = 0;
+								gamePlay();
+							},1000);
+						}
+					} 
 
-	  //       $('#start').click(function getRandomColor() {
-	  //       	var random = ["Red", "Blue", "Green", "Yellow"];
-			//   	var color = "#";
-			// 		for (var i = 0; i < 20; i++) {
-			// 		    color += random[Math.floor(Math.random() * 20)];
-			// 		 }
-			// 		return color;
-			// 		});
-		
-			// 	console.log(getRandomColor);
-			// });
+					else {
+						if (strict == 1) {
+							location.reload();
 
+						} 
 
-	        
-
-			// function setRandomColor() {
-			//    $("#container").css("background-color", getRandomColor());
-			// }
-
-
-
-        	/**function to display instructions:
-        	//On page load default display: Click start to begin
-				if game is new : "Watch the sequence"
-
-				once the sequence ends: "Repeat the sequence you just saw" **/
+						else {
+							setTimeOut(function(){
+								$("#count").text("!!");
+								liteId = [];
+								userClicked = [];
+								colorArray = 0;
+								gamePlay();
+							}, 1000);
+						}
+					}
+				}
+			}
 
 			
-         });
+
+			
+         //});
         </script>
 
 	</body>
