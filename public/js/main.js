@@ -1,21 +1,25 @@
 $(document).ready(function() {
  "use strict";
+//-------------------Variables----------------------//
+    var boxes = ["red", "green", "blue", "yellow"];   
+    var liteId = [];
+    var count = 0;     	
 
-        	var boxes = ["red", "green", "blue", "yellow"];
-        
-        	var liteId = [];
-        	var lite;
-        	var userClicked = "";
-        	var userClickedIndex = 0
-        	var i;
-            var audioArray = ["audio1", "audio2", "audio3", "audio4"];
+    var userClicked = "";
+    var userClickedIndex = 0
         	
-        	var count = 0;
-        
-        	var stopInterval;
+            
+	var startAudio = document.createElement("audio");
+        startAudio.setAttribute('src', '/sound/arcade_game_alarm_short.mp3');
+    var audioFail = document.createElement("audio");
+        audioFail.setAttribute('src', '/sound/arcade_game_fall_tone_001.mp3');
+    var audioClick = document.createElement("audio");
+        audioClick.setAttribute('src', "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+	
 
-        	function random() {
-        		console.log(boxes);	
+//------------------------Functions----------------------------//	
+
+        	function random() {	
         		var randomColor = Math.round(Math.random() *  boxes.length);
         		liteId.push(boxes[randomColor]);
         		return liteId;
@@ -44,12 +48,13 @@ $(document).ready(function() {
         	$("#start").click(function(){
         		random();
         		flashSequence();
-        		console.log(liteId);
+                startAudio.play();
                 $(this).attr("disabled", true);
 
 			});
 
 			$(".box").click(function(){
+                audioClick.play();
 				userClicked = this.id;
 				if (userClicked === liteId[userClickedIndex]) {
 					userClickedIndex += 1;
@@ -62,13 +67,11 @@ $(document).ready(function() {
                             random();
                             flashSequence();
                         }, 2000);
- 
-					console.log(liteId);
-					console.log(userClicked + " " + userClickedIndex);
+					
 					}
 				} else{
-					alert("Game Over!");
                     gameOver();
+                    alert("Game Over!");
 				}
 
 			});
@@ -77,23 +80,16 @@ $(document).ready(function() {
 				$("#count").text(count);
 			}
 
-
-
             function gameOver(){
+                audioFail.play();
                 userClicked = "";
                 userClickedIndex = 0;
                 liteId = [];
                 count = 0;
                 $("#start").attr("disabled", false);
                 location.reload();
-            
+            }
 
-            $("#red").click(function(){
-                var audio = {};
-                audio
-            });
-
-        	
-
+           
 			
          });
