@@ -45,6 +45,7 @@ $(document).ready(function() {
         		flashSequence();
         		console.log(liteId);
                 $(this).attr("disabled", true);
+
 			});
 
 			$(".box").click(function(){
@@ -79,8 +80,9 @@ $(document).ready(function() {
                 userClicked = "";
                 userClickedIndex = 0;
                 liteId = [];
+                count = 0;
                 $("#start").attr("disabled", false);
-              
+                location.reload();
             }
 
         	
