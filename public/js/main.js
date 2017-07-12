@@ -47,6 +47,7 @@ $(document).ready(function() {
 
         	$("#start").click(function(){
         		random();
+                alert("Follow the Sequence!")
         		flashSequence();
                 startAudio.play();
                 $(this).attr("disabled", true);
