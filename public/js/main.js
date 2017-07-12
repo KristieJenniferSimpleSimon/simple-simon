@@ -32,6 +32,14 @@ $(document).ready(function() {
         		});
         	}
 
+            $(".box").click(function(){
+                $('#' + this.id).animate( {
+                    opacity: "1",
+                        }, 800). animate( {
+                    opacity: "0.5"
+                        }, 200);
+            });
+
         	$("#start").click(function(){
         		random();
         		flashSequence();
@@ -66,6 +74,10 @@ $(document).ready(function() {
 			function updateCount(){
 				$("#count").text(count);
 			}
+
+            
+
+
 
 
 
