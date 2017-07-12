@@ -13,7 +13,7 @@ h1{
 }
 
 
-#one {
+#red {
 	height: 100px;
 	width: 100px;
 	text-align: center;
@@ -22,7 +22,7 @@ h1{
 	opacity: 0.5;
 }
 
-#two {
+#green {
 	height: 100px;
 	width: 100px;
 	text-align: center;
@@ -31,7 +31,7 @@ h1{
 	opacity: 0.5;
 }
 
-#three {
+#blue {
 	height: 100px;
 	width: 100px;
 	text-align: center;
@@ -40,7 +40,7 @@ h1{
 	opacity: 0.5;
 }
 
-#four {
+#yellow {
 	height: 100px;
 	width: 100px;
 	text-align: center;
