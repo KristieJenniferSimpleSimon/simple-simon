@@ -76,13 +76,8 @@ $(document).ready(function() {
 				$("#count").text(count);
 			}
 
-<<<<<<< HEAD
-            
 
 
-
-
-=======
             function gameOver(){
                 userClicked = "";
                 userClickedIndex = 0;
@@ -90,8 +85,7 @@ $(document).ready(function() {
                 count = 0;
                 $("#start").attr("disabled", false);
                 location.reload();
-            }
->>>>>>> 83f48661c5b19f38a14dcec8b755734ccb731138
+            
 
         	
 
