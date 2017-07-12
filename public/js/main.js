@@ -36,13 +36,7 @@ $(document).ready(function() {
         		random();
         		flashSequence();
         		console.log(liteId);
-        		// $('.box').animate( {
-        		// 	opacity: "1",
-        		// }, 800).animate({
-        		// 	opacity: "0.5"
-        		// }, 200);
-				// $("#count").text(count);
-				// gamePlay();
+                $(this).attr("disabled", true);
 			});
 
 			$(".box").click(function(){
@@ -52,15 +46,19 @@ $(document).ready(function() {
 					if (userClickedIndex === liteId.length){
 						userClickedIndex = 0;
 						count++;
-						updateCount();
-						random();
-						flashSequence();
+						updateCount(); 
 
+                        var timeOut = setTimeout(function(){
+                            random();
+                            flashSequence();
+                        }, 2000);
+ 
 					console.log(liteId);
 					console.log(userClicked + " " + userClickedIndex);
 					}
 				} else{
 					alert("Game Over!");
+                    $("#start").attr("disabled", false);
 				}
 
 			});
