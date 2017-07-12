@@ -8,6 +8,7 @@ $(document).ready(function() {
         	var userClicked = "";
         	var userClickedIndex = 0
         	var i;
+            var audioArray = ["audio1", "audio2", "audio3", "audio4"];
         	
         	var count = 0;
         
@@ -84,6 +85,11 @@ $(document).ready(function() {
                 $("#start").attr("disabled", false);
                 location.reload();
             }
+
+            $("#red").click(function(){
+                var audio = {};
+                audio
+            });
 
         	
 
