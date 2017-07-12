@@ -32,6 +32,14 @@ $(document).ready(function() {
         		});
         	}
 
+            $(".box").click(function(){
+                $('#' + this.id).animate( {
+                            opacity: "1",
+                        }, 800). animate( {
+                            opacity: "0.5"
+                        }, 200);
+            })
+
         	$("#start").click(function(){
         		random();
         		flashSequence();
@@ -58,7 +66,7 @@ $(document).ready(function() {
 					}
 				} else{
 					alert("Game Over!");
-                    $("#start").attr("disabled", false);
+                    gameOver();
 				}
 
 			});
@@ -67,7 +75,13 @@ $(document).ready(function() {
 				$("#count").text(count);
 			}
 
-
+            function gameOver(){
+                userClicked = "";
+                userClickedIndex = 0;
+                liteId = [];
+                $("#start").attr("disabled", false);
+              
+            }
 
         	
 
