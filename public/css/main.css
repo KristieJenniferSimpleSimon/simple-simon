@@ -12,6 +12,7 @@ h1{
 	background-color: white;
 }
 
+
 #one {
 	height: 100px;
 	width: 100px;
@@ -48,47 +49,6 @@ h1{
 	opacity: 0.5;
 }
 
-#inactiveBox1 {
-	background-color: red;
-	opacity: 0.5;
-}
-
-#activeBox1 {
-	background-color: red;
-	opacity: 1;
-
-}
-
-#inactiveBox2 {
-	background-color: green;
-	opacity: 0.5;
-}
-
-#activeBox2 {
-	background-color: green;
-	opacity: 1;
-}
-
-#inactiveBox3 {
-	background-color: blue;
-	opacity: 0.5;
-}
-
-#activeBox3 {
-	background-color: blue;
-	opacity: 1;
-}
-
-#inactiveBox4 {
-	background-color: yellow;
-	opacity: 0.25;
-}
-
-
-#activeBox4 {
-	background-color: yellow;
-	opacity: 1;
-}
 
 .btn {
 	height: 30px;
@@ -97,6 +57,13 @@ h1{
 	align-content: center;
 	background-color: transparent;
 
+}
+
+#start {
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	
 }
 
 
