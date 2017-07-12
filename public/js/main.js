@@ -35,11 +35,11 @@ $(document).ready(function() {
 
             $(".box").click(function(){
                 $('#' + this.id).animate( {
-                            opacity: "1",
+                    opacity: "1",
                         }, 800). animate( {
-                            opacity: "0.5"
+                    opacity: "0.5"
                         }, 200);
-            })
+            });
 
         	$("#start").click(function(){
         		random();
@@ -77,6 +77,8 @@ $(document).ready(function() {
 				$("#count").text(count);
 			}
 
+
+
             function gameOver(){
                 userClicked = "";
                 userClickedIndex = 0;
@@ -84,7 +86,7 @@ $(document).ready(function() {
                 count = 0;
                 $("#start").attr("disabled", false);
                 location.reload();
-            }
+            
 
             $("#red").click(function(){
                 var audio = {};
