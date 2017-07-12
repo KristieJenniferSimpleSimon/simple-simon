@@ -45,6 +45,7 @@ $(document).ready(function() {
         		flashSequence();
         		console.log(liteId);
                 $(this).attr("disabled", true);
+
 			});
 
 			$(".box").click(function(){
@@ -66,7 +67,7 @@ $(document).ready(function() {
 					}
 				} else{
 					alert("Game Over!");
-                    $("#start").attr("disabled", false);
+                    gameOver();
 				}
 
 			});
@@ -75,11 +76,22 @@ $(document).ready(function() {
 				$("#count").text(count);
 			}
 
+<<<<<<< HEAD
             
 
 
 
 
+=======
+            function gameOver(){
+                userClicked = "";
+                userClickedIndex = 0;
+                liteId = [];
+                count = 0;
+                $("#start").attr("disabled", false);
+                location.reload();
+            }
+>>>>>>> 83f48661c5b19f38a14dcec8b755734ccb731138
 
         	
 
