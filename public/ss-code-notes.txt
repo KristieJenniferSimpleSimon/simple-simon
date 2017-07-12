@@ -1,0 +1,290 @@
+// Preload the images
+
+if (document.images) {
+  yellow0 = new Image(); yellow0.src = "images/yellow.gif";
+  yellow1 = new Image(); yellow1.src = "images/yellow_d.gif";
+  green0 = new Image(); green0.src = "images/green.gif";
+  green1 = new Image(); green1.src = "images/green_d.gif";
+  blue0 = new Image(); blue0.src = "images/blue.gif";
+  blue1 = new Image(); blue1.src = "images/blue_d.gif";
+  red0 = new Image(); red0.src = "images/red.gif";
+  red1 = new Image(); red1.src = "images/red_d.gif";
+}
+
+// Flash one of the quarters
+
+function flash_quarter(n) {
+  // convert number to name of colour:
+  if (n==1) colour= "yellow"; if (n==2) colour= "green";
+  if (n==3) colour= "blue"; if (n==4) colour= "red";
+
+  document.images[colour].src = eval(colour + "1.src");
+  setTimeout('document.images[colour].src = eval(colour + "0.src")', 80);
+}
+
+// Initialize global variables
+
+var count;                // how much we've completed of the current sequence
+var round_number;         // how long the current sequence is
+var difficulty;           // how long the maximum sequence can be
+var rounds= new Array;    // the total sequence of colours
+var interval= 500;        // the interval between flashes (lower is harder)
+var on;                   // are we playing the game at the moment?
+
+/ Set up the game
+
+function set_up() {
+  count= 0; round_number= 0; on= 0;
+
+  // find out the current difficulty level:
+  var index= document.diff.level.selectedIndex;
+  difficulty= document.diff.level.options[index].value;
+
+  // create the sequence:
+  for (var i=0; i<difficulty; i++) {
+    rounds[i]= rand();
+  }
+}
+
+// Show the sequence
+
+function start_round() {
+  if (!document.images) {
+    // if browser does not support JavaScript images then say so and end
+    alert('Sorry, your browser does not support JavaScript Images');
+    return;
+  }
+
+  document.text.area.value= ""; count= 0; on= 1;
+
+  // but only up to the current step:
+  for (var i=0; i<=round_number; i++) {
+    setTimeout("flash_quarter(" + rounds[i] + ")", i*interval);
+  }
+}
+
+// User input
+
+function user_play(button) {
+
+  // check that we're playing the game:
+  if (on) {
+
+    // show the results of the click:
+    flash_quarter(button);
+
+    if (rounds[count]!= button) {
+      // uh oh.. wrong colour:
+      document.text.area.value= "Sorry, you lose.";
+      set_up();
+    }
+
+    else if (count==round_number) {
+      // right colour *and* we've completed the current sequence:
+      round_number++;
+
+      if (round_number==difficulty) {
+        // the sequence is at an end so that's all folks:
+        document.text.area.value= "Wahey, you win!";
+        set_up();
+      }
+
+      else {
+        // right colour, but the sequence isn't completed yet:
+        setTimeout("start_round()", 1000);
+      }
+    }
+
+    // next step in the sequence:
+    count++;
+  }
+
+  else {
+    // we're not playing yet:
+    document.text.area.value= "Click START to play";
+    setTimeout("document.text.area.value=''", 400);
+  }
+}
+
+<A HREF="javascript:user_play(1)">
+  <IMG SRC="images/yellow.gif" WIDTH="102" HEIGHT="102"
+   BORDER="0" NAME="yellow">
+</A>
+<!-- best in: Explorer 4 :: doesn't work with Netscape -->
+
+<IMG SRC="images/yellow.gif" WIDTH="102" HEIGHT="102"
+ BORDER="0" NAME="yellow" onClick="user_play(1);">
+
+ <TABLE width="400" border="0" cellspacing="0" cellpadding="0">
+  <TR><TD COLSPAN="4" ALIGN="center"><FONT FACE="Arial, Helvetica, sans-serif">
+    <H2>Simon Says... JavaScript</H2>
+  </FONT></TD></TR>
+
+  <!-- the 2x2 table (honest :) -->
+  <TR><TD COLSPAN="2" ALIGN="right" VALIGN="bottom">
+        <A HREF="javascript:user_play(1)"><IMG SRC="images/yellow.gif" WIDTH="102"
+         HEIGHT="102" BORDER="0" ALT="Yellow" NAME="yellow"></A></TD>
+      <TD COLSPAN="2" ALIGN="left" VALIGN="bottom">
+        <A HREF="javascript:user_play(2)"><IMG SRC="images/green.gif" WIDTH="102"
+         HEIGHT="102" BORDER="0" ALT="Green" NAME="green"></A></TD>
+  </TR>
+
+  <TR><TD COLSPAN="2" ALIGN="right" VALIGN="top">
+        <A HREF="javascript:user_play(4)"><IMG SRC="images/red.gif" WIDTH="102"
+         HEIGHT="102" BORDER="0" ALT="Red" NAME="red"></A></TD>
+      <TD COLSPAN="2" ALIGN="left" VALIGN="top">
+        <A HREF="javascript:user_play(3)"><IMG SRC="images/blue.gif" WIDTH="102"
+         HEIGHT="102" BORDER="0" ALT="Blue" NAME="blue"></A></TD>
+  </TR>
+
+  <TR><TD COLSPAN="4">&nbsp;</TD></TR>
+
+  <TR><TD ALIGN="right">
+        <!-- the start game button: -->
+        <FORM><INPUT TYPE="button" VALUE="Start Game" onClick="set_up(); start_round();">
+        </FORM></TD>
+
+      <TD ALIGN="center" COLSPAN="2">
+        <!-- the text area: -->
+        <FORM NAME="text"><INPUT TYPE="text" NAME="area" SIZE="20">
+        </FORM></TD>
+
+      <TD ALIGN="left">
+        <!-- the difficulty menu: -->
+        <FORM NAME="diff"><SELECT NAME="level" SIZE="1">
+        <OPTION VALUE="5">Easy<OPTION VALUE="10">Medium<OPTION VALUE="15">Hard
+        </SELECT></FORM></TD>
+  </TR>
+
+  <TR><TD COLSPAN="4" ALIGN="center">&nbsp;<BR></TD></TR>
+
+  <TR><TD>&nbsp;</TD>
+      <TD COLSPAN="2" ALIGN="center"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="1">
+        <B>Last updated: 5th December 1997<BR>
+        Created by Keith Drakard</B>
+      </FONT></TD>
+      <TD>&nbsp;</TD>
+  </TR>
+
+</TABLE>
+
+=======================================================================
+// Preload the images ////////////////////////////////////////////////////
+
+        if (document.images) {
+          yellow0 = new Image(); yellow0.src = "images/yellow.gif";
+          yellow1 = new Image(); yellow1.src = "images/yellow_d.gif";
+          green0 = new Image(); green0.src = "images/green.gif";
+          green1 = new Image(); green1.src = "images/green_d.gif";
+          blue0 = new Image(); blue0.src = "images/blue.gif";
+          blue1 = new Image(); blue1.src = "images/blue_d.gif";
+          red0 = new Image(); red0.src = "images/red.gif";
+          red1 = new Image(); red1.src = "images/red_d.gif";
+        }
+
+        // Flash one of the quarters /////////////////////////////////////////////
+
+        function flash_quarter(n) {
+          // convert number to name of colour:
+          if (n==1) colour= "yellow"; if (n==2) colour= "green";
+          if (n==3) colour= "blue"; if (n==4) colour= "red";
+
+          document.images[colour].src = eval(colour + "1.src");
+          setTimeout('document.images[colour].src = eval(colour + "0.src")', 80);
+        }
+
+        // The Central Randomizer 1.3 ////////////////////////////////////////////
+        // (C)1997 by Paul Houle (houle@msc.cornell.edu)
+        // See:  http://www.msc.cornell.edu/~houle/javascript/randomizer.html
+
+        rnd.today=new Date(); rnd.seed=rnd.today.getTime();
+
+        function rnd() {
+          rnd.seed = (rnd.seed*9301+49297) % 233280;
+          return rnd.seed/(233280.0);
+        }
+
+        function rand() {
+          return Math.ceil(rnd()*4);
+        }
+
+        // Initialize global variables ///////////////////////////////////////////
+
+        var count;                // how much we've completed of the current sequence
+        var round_number;         // how long the current sequence is
+        var difficulty;           // how long the maximum sequence can be
+        var rounds= new Array;    // the total sequence of colours
+        var interval= 500;        // the interval between flashes (lower is harder)
+        var on;                   // are we playing the game at the moment?
+
+        // Set up the game ///////////////////////////////////////////////////////
+
+        function set_up() {
+          count= 0; round_number= 0; on= 0;
+
+          // find out the current difficulty level:
+          var index= document.diff.level.selectedIndex;
+          difficulty= document.diff.level.options[index].value;
+
+          // create the sequence:
+          for (var i=0; i<difficulty; i++) {
+            rounds[i]= rand();
+          }
+        }
+
+        // Show the sequence //////////////////////////////////////////////////////
+
+        function start_round() {
+          document.text.area.value= ""; count= 0; on= 1;
+
+          // but only up to the current step:
+          for (var i=0; i<=round_number; i++) {
+            setTimeout("flash_quarter(" + rounds[i] + ")", i*interval);
+          }
+        }
+
+        // User input /////////////////////////////////////////////////////////////
+
+        function user_play(button) {
+
+          // check that we're playing the game:
+          if (on) {
+
+            // show the results of the click:
+            flash_quarter(button);
+
+            if (rounds[count]!= button) {
+              // uh oh.. wrong colour:
+              document.text.area.value= "Sorry, you lose.";
+              set_up();
+            }
+
+            else if (count==round_number) {
+              // right colour *and* we've completed the current sequence:
+              round_number++;
+
+              if (round_number==difficulty) {
+                // the sequence is at an end so that's all folks:
+                document.text.area.value= "Wahey, you win!";
+                set_up();
+              }
+
+              else {
+                // right colour, but the sequence isn't completed yet:
+                setTimeout("start_round()", 1000);
+              }
+            }
+
+            // next step in the sequence:
+            count++;
+          }
+
+          else {
+            // we're not playing yet:
+            document.text.area.value= "Click START to play";
+            setTimeout("document.text.area.value=''", 400);
+          }
+        }
+
+        //-->
+      </SCRIPT>
